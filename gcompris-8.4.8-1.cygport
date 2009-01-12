@@ -3,7 +3,12 @@ inherit python gnome2
 DESCRIPTION="GTK+ educational suite for children"
 HOMEPAGE="http://gcompris.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
-PATCH_URI="mirror://portage/games-kids/${PN}/files/${PN}-8.4.4-build.patch"
+PATCH_URI="
+	mirror://portage/games-kids/${PN}/files/${PN}-8.4.8-build.patch
+	8.4.8-libgnomecanvas.patch
+	8.4.8-no-undefined.patch
+	8.4.8-not-mingw.patch
+"
 
 CYGCONF_ARGS="
 	--disable-dependency-tracking

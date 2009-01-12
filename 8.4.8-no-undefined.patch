@@ -1,0 +1,25 @@
+--- origsrc/gcompris-8.4.8/src/boards/Makefile.am	2008-10-28 16:34:35.000000000 -0500
++++ src/gcompris-8.4.8/src/boards/Makefile.am	2009-01-11 23:34:18.937125000 -0600
+@@ -19,7 +19,7 @@ endif
+ if PLATFORM_WIN32
+ shared = -shared
+ no_undefined = -no-undefined
+-gc_libs = $(GCOMPRIS_LIBS)
++gc_libs = $(GCOMPRIS_LIBS) -Wl,$(top_builddir)/src/gcompris/libgcompris.a
+ dll_export = -DBOARD_DLL_EXPORT
+ else
+ shared =
+--- origsrc/gcompris-8.4.8/src/gcompris/Makefile.am	2008-10-28 16:33:46.000000000 -0500
++++ src/gcompris-8.4.8/src/gcompris/Makefile.am	2009-01-11 23:34:19.015250000 -0600
+@@ -30,9 +30,11 @@ endif
+ if PLATFORM_WIN32
+ no_undefined = -no-undefined
+ shared = -shared
++export_symbols = -Wl,--export-all-symbols -Wl,--out-implib,libgcompris.a
+ else
+ no_undefined =
+ shared =
++export_symbols = -export-dynamic
+ endif
+ 
+ if WITH_NSBUNDLE
