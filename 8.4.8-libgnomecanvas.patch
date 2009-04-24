@@ -16,6 +16,15 @@
    gstreamer-0.10])
  
  AC_SUBST(GCOMPRIS_CFLAGS)
+@@ -547,8 +547,6 @@ src/boards/python/gcompris/timer/Makefil
+ src/boards/python/gcompris/utils/Makefile
+ src/boards/python/connect4p/Makefile
+ src/boards/python/admin/Makefile
+-src/libart_lgpl/Makefile
+-src/libgnomecanvas/Makefile
+ po/Makefile.in
+ docs/Makefile
+ docs/C/Makefile
 --- origsrc/gcompris-8.4.8/src/Makefile.am	2007-05-22 15:15:05.000000000 -0500
 +++ src/gcompris-8.4.8/src/Makefile.am	2009-01-11 23:34:18.937125000 -0600
 @@ -1,3 +1,3 @@
