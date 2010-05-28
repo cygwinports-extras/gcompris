@@ -1,0 +1,13 @@
+--- origsrc/gcompris-9.3/src/gcompris/Makefile.am	2010-04-05 10:49:02.000000000 -0500
++++ src/gcompris-9.3/src/gcompris/Makefile.am	2010-05-27 23:33:06.624823400 -0500
+@@ -112,6 +112,10 @@ gcompris_SOURCES = \
+ gcompris_LDFLAGS = \
+ 	-export-dynamic $(cairo_ldflags)
+ 
++if PLATFORM_WIN32
++gcompris_LDFLAGS += \
++	-Wl,--export-all-symbols -Wl,--out-implib,libgcompris.exe.a
++endif
+ 
+ gcompris_LDADD = \
+ 	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \

@@ -1,0 +1,34 @@
+--- origsrc/gcompris-9.3/configure.ac	2010-04-25 16:43:42.000000000 -0500
++++ src/gcompris-9.3/configure.ac	2010-05-27 23:26:11.023052400 -0500
+@@ -226,9 +226,20 @@ case "$host" in
+     ;;
+ esac
+ AC_MSG_RESULT($platform_win32)
++
++AC_MSG_CHECKING([for native Win32])
++case "$host" in
++  *-*-mingw*)
++    native_win32=yes
++    ;;
++  *)
++    native_win32=no
++    ;;
++esac
++AC_MSG_RESULT($native_win32)
+ AM_CONDITIONAL(PLATFORM_WIN32, test "$platform_win32" = yes)
+-AM_CONDITIONAL(BUILD_MINGW32, test "$platform_win32" = yes)
+-if test x"$platform_win32" = xyes; then
++AM_CONDITIONAL(BUILD_MINGW32, test "$native_win32" = yes)
++if test x"$native_win32" = xyes; then
+    LIBS="$LIBS -luuid -lole32 -lwsock32 -mno-cygwin -mms-bitfields -mwindows -mconsole"
+    #CFLAGS="$CFLAGS -D__GW32__ -DWIN32 -I$CROSS_ROOT/include -I$CROSS_ROOT/include/glibc"
+    #CFLAGS="$CFLAGS -DWIN32"
+@@ -274,7 +285,7 @@ dnl
+ dnl === DIRECTORY DEFINITIONS ===
+ dnl
+ 
+-if test "x$platform_win32" = "xyes" ; then
++if test "x$native_win32" = "xyes" ; then
+   DATADIRNAME="share"
+ 
+   dnl Set PACKAGE_LOCALE_DIR in config.h for WINDOWS

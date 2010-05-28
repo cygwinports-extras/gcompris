@@ -1,0 +1,50 @@
+--- origsrc/gcompris-9.3/src/gcompris/Makefile.am	2010-04-05 10:49:02.000000000 -0500
++++ src/gcompris-9.3/src/gcompris/Makefile.am	2010-05-27 23:33:06.624823400 -0500
+@@ -113,7 +113,7 @@ gcompris_SOURCES = \
+ 	-export-dynamic $(cairo_ldflags)
+ 
+ gcompris_LDADD = \
+-	$(top_builddir)/src/goocanvas/src/libgoocanvas.la \
++	$(top_builddir)/src/goocanvas/src/libgcompriscanvas.la \
+ 	$(GCOMPRIS_LIBS) $(sqlite_ldadd) $(XML_LIBS) $(GNET_LIBS) \
+ 	$(DBUS_LIBS) \
+ 	$(AUDIO_LIBS) \
+--- origsrc/gcompris-9.3/src/goocanvas/src/Makefile.am	2010-03-27 15:55:24.000000000 -0500
++++ src/gcompris-9.3/src/goocanvas/src/Makefile.am	2010-05-27 23:51:55.736404900 -0500
+@@ -4,22 +4,21 @@ INCLUDES = \
+ 	-DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED \
+ 	-DGDK_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED \
+ 	-DGTK_DISABLE_DEPRECATED \
+-	-DG_LOG_DOMAIN=\"GooCanvas\" \
++	-DG_LOG_DOMAIN=\"GComprisCanvas\" \
+ 	@GCOMPRIS_CFLAGS@
+ 
+-libdir = $(plugindir)
+-lib_LTLIBRARIES = libgoocanvas.la
++lib_LTLIBRARIES = libgcompriscanvas.la
+ 
+-libgoocanvas_la_LIBADD = @GCOMPRIS_LIBS@ $(INTLLIBS)
++libgcompriscanvas_la_LIBADD = @GCOMPRIS_LIBS@ $(INTLLIBS)
+ 
+ if PLATFORM_WIN32
+ no_undefined = -no-undefined
+ endif
+ 
+ libtool_opts =				\
+-  -rpath $(libdir)
++  -rpath $(libdir) $(no_undefined)
+ 
+-libgoocanvas_la_LDFLAGS = $(libtool_opts)
++libgcompriscanvas_la_LDFLAGS = $(libtool_opts)
+ 
+ libgoocanvasincludedir = $(includedir)/goocanvas-1.0
+ 
+@@ -42,7 +41,7 @@ libgoocanvas_public_headers =		\
+ 	goocanvas.h			\
+ 	goocanvassvg.h
+ 
+-libgoocanvas_la_SOURCES =		\
++libgcompriscanvas_la_SOURCES =		\
+ 	goocanvasatk.h			\
+ 	goocanvasatk.c			\
+ 	goocanvasellipse.c		\

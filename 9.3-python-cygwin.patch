@@ -1,0 +1,108 @@
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-board.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-board.c	2010-05-27 23:26:11.032052900 -0500
+@@ -185,7 +185,7 @@ pyGcomprisBoardType_setattr(pyGcomprisBo
+ }
+ 
+ static PyTypeObject pyGcomprisBoardType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-boardconfig.c	2009-08-30 11:24:54.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-boardconfig.c	2010-05-27 23:26:11.036053100 -0500
+@@ -55,7 +55,7 @@ pyGcomprisBoardConfigType_setattr(pyGcom
+ }
+ 
+ static PyTypeObject pyGcomprisBoardConfigType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-class.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-class.c	2010-05-27 23:26:11.041053400 -0500
+@@ -113,7 +113,7 @@ pyGcomprisClassType_setattr(pyGcomprisCl
+ }
+ 
+ static PyTypeObject pyGcomprisClassType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-group.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-group.c	2010-05-27 23:26:11.045053600 -0500
+@@ -102,7 +102,7 @@ pyGcomprisGroupType_setattr(pyGcomprisGr
+ }
+ 
+ static PyTypeObject pyGcomprisGroupType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-profile.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-profile.c	2010-05-27 23:26:11.049053800 -0500
+@@ -117,7 +117,7 @@ pyGcomprisProfileType_setattr(pyGcompris
+ }
+ 
+ static PyTypeObject pyGcomprisProfileType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-properties.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-properties.c	2010-05-27 23:26:11.054054100 -0500
+@@ -190,7 +190,7 @@ pyGcomprisPropertiesType_setattr(pyGcomp
+ }
+ 
+ static PyTypeObject pyGcomprisPropertiesType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-user.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-user.c	2010-05-27 23:26:11.058054400 -0500
+@@ -96,7 +96,7 @@ pyGcomprisUserType_setattr(pyGcomprisUse
+ }
+ 
+ static PyTypeObject pyGcomprisUserType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-gcompris-wordlist.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-gcompris-wordlist.c	2010-05-27 23:26:11.062054600 -0500
+@@ -108,7 +108,7 @@ pyGcomprisWordlistType_setattr(pyGcompri
+ }
+ 
+ static PyTypeObject pyGcomprisWordlistType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+--- origsrc/gcompris-9.3/src/boards/py-mod-anim.c	2010-03-23 17:21:41.000000000 -0500
++++ src/gcompris-9.3/src/boards/py-mod-anim.c	2010-05-27 23:26:11.067054900 -0500
+@@ -56,7 +56,7 @@ static PyMethodDef AnimationMethods[] =
+ };
+ 
+ static PyTypeObject py_GcomprisAnimationType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
+@@ -102,7 +102,7 @@ static PyTypeObject py_GcomprisAnimation
+ };
+ 
+ static PyTypeObject py_GcomprisAnimCanvasType = {
+-#if defined(WIN32)
++#if defined(G_PLATFORM_WIN32)
+   PyObject_HEAD_INIT(NULL)
+ #else /* ! WIN32 */
+   PyObject_HEAD_INIT(&PyType_Type)
