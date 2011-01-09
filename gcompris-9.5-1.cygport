@@ -5,10 +5,10 @@ HOMEPAGE="http://gcompris.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 PATCH_URI="
 	9.3-implib.patch
-	9.3-libgoocanvas.patch
+	9.5-libgoocanvas.patch
 	9.3-platform-win32.patch
 	9.3-python-cygwin.patch
-	8.4.12-Werror.patch
+	9.5-Werror.patch
 "
 
 DIFF_EXCLUDES="Makefile"

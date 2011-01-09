@@ -1,5 +1,5 @@
 category: Games Gnome
-requires: gnucap gnuchess gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-ogg gstreamer0.10-plugins-oss gstreamer0.10-plugins-vorbis libatk1.0_0 libcairo2 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgnet2.0_0 libgstreamer0.10_0 libgtk2.0_0 libintl8 libpango1.0_0 librsvg2_2 libsqlite3_0 libxml2 python python-gobject2.0 python-gtk2.0 tuxpaint
+requires: gnucap gnuchess gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-ogg gstreamer0.10-plugins-oss gstreamer0.10-plugins-vorbis libatk1.0_0 libcairo2 libgdk_pixbuf2.0_0 libglib2.0_0 libgnet2.0_0 libgstreamer0.10_0 libgtk2.0_0 libintl8 libpango1.0_0 librsvg2_2 libsqlite3_0 libxml2 python python-gobject2.0 python-gtk2.0 tuxpaint
 sdesc: "GTK+ educational software suite for children"
 ldesc: "GCompris is an educational software suite comprising of numerous
 activities for children aged 2 to 10. Some of the activities are game
