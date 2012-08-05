@@ -1,0 +1,57 @@
+inherit python gnome2
+
+CATEGORY="Games"
+SUMMARY="GTK+ educational suite for children"
+DESCRIPTION="GCompris is an educational software suite comprising of numerous
+activities for children aged 2 to 10. Some of the activities are game
+orientated, but nonetheless still educational. Currently GCompris offers
+in excess of 80 activities and more are being developed."
+HOMEPAGE="http://gcompris.net/"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
+PATCH_URI="
+	9.3-implib.patch
+	9.5-libgoocanvas.patch
+	9.3-platform-win32.patch
+	9.3-python-cygwin.patch
+	12.05-sugar.patch
+"
+
+PKG_NAMES="gcompris sugar-GCompris"
+gcompris_REQUIRES="gnucap gnuchess gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-vorbis tuxpaint"
+gcompris_CONTENTS="--exclude=gcompris-activity --exclude=sugar --exclude=voices etc/ usr/"
+sugar_GCompris_CATEGORY="Sugar"
+sugar_GCompris_REQUIRES="gcompris"
+sugar_GCompris_CONTENTS="usr/bin/gcompris-activity usr/share/icons/sugar/ usr/share/sugar/"
+
+for l in af ar ast bg br cs da de el en eo es eu fi fr he hi hu id it mr nb nl \
+         nn pa pt pt_BR ru sl so sr sv th tr ur zh_CN
+do
+	PKG_NAMES+=" gcompris-voices-${l}"
+	declare gcompris_voices_${l}_CONTENTS="usr/share/gcompris/boards/voices/${l}/"
+done
+
+DIFF_EXCLUDES="Makefile"
+
+src_compile() {
+	cd ${S}
+	gnome2_autoreconf
+	cd ${B}
+	cygconf \
+		--disable-static \
+		--enable-gnet \
+		--enable-py-build-only \
+		--with-python=${PYTHON} \
+		--enable-sugar \
+		--disable-dependency-tracking \
+		--disable-xf86vidmode
+	cygmake -j1 \
+		gc_libs="\$(top_builddir)/src/goocanvas/src/libgcompriscanvas.la \$(GCOMPRIS_LIBS) -Wl,\$(top_builddir)/src/gcompris/libgcompris.exe.a"
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+	python_optimize /usr/share/${PN}/python
+}
+
+KEEP_LA_FILES="none"

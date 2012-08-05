@@ -11,10 +11,10 @@
  	$(AUDIO_LIBS) \
 --- origsrc/gcompris-9.5/src/goocanvas/src/Makefile.am	2010-10-24 18:03:41.000000000 -0500
 +++ src/gcompris-9.5/src/goocanvas/src/Makefile.am	2011-01-08 21:32:43.978029300 -0600
-@@ -3,22 +3,22 @@
+@@ -1,22 +1,22 @@
+ ## Process this file with automake to produce Makefile.in
+ 
  INCLUDES = \
- 	-DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED \
- 	-DGDK_PIXBUF_DISABLE_DEPRECATED \
 -	-DG_LOG_DOMAIN=\"GooCanvas\" \
 +	-DG_LOG_DOMAIN=\"GComprisCanvas\" \
  	@GCOMPRIS_CFLAGS@
