@@ -1,5 +1,8 @@
 inherit python gnome2
 
+NAME="gcompris"
+VERSION=12.11
+RELEASE=1
 CATEGORY="Games"
 SUMMARY="GTK+ educational suite for children"
 DESCRIPTION="GCompris is an educational software suite comprising of numerous
@@ -13,7 +16,6 @@ PATCH_URI="
 	9.5-libgoocanvas.patch
 	9.3-platform-win32.patch
 	9.3-python-cygwin.patch
-	12.05-sugar.patch
 "
 
 PKG_NAMES="gcompris sugar-GCompris"
@@ -24,11 +26,12 @@ sugar_GCompris_REQUIRES="gcompris"
 sugar_GCompris_CONTENTS="usr/bin/gcompris-activity usr/share/icons/sugar/ usr/share/sugar/"
 
 for l in af ar ast bg br cs da de el en eo es eu fi fr he hi hu id it mr nb nl \
-         nn pa pt pt_BR ru sl so sr sv th tr ur zh_CN
+         nn pa pt pt_BR ru sk sl so sr sv th tr ur zh_CN
 do
 	PKG_NAMES+=" gcompris-voices-${l}"
 	declare gcompris_voices_${l}_CONTENTS="usr/share/gcompris/boards/voices/${l}/"
 done
+gcompris_voices_en_CONTENTS+=" usr/share/gcompris/boards/voices/HOWTO_ENCODE"
 
 DIFF_EXCLUDES="Makefile"
 
@@ -54,4 +57,3 @@ src_install() {
 	python_optimize /usr/share/${PN}/python
 }
 
-KEEP_LA_FILES="none"
