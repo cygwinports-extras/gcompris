@@ -10,12 +10,13 @@ activities for children aged 2 to 10. Some of the activities are game
 orientated, but nonetheless still educational. Currently GCompris offers
 in excess of 80 activities and more are being developed."
 HOMEPAGE="http://gcompris.net/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/gcompris/${NAME}-${VERSION}.tar.bz2"
 PATCH_URI="
 	9.3-implib.patch
 	9.5-libgoocanvas.patch
 	9.3-platform-win32.patch
 	9.3-python-cygwin.patch
+	12.11-Winherit-decls.patch
 "
 
 PKG_NAMES="gcompris sugar-GCompris"
@@ -54,6 +55,6 @@ src_compile() {
 src_install() {
 	cd ${B}
 	cyginstall
-	python_optimize /usr/share/${PN}/python
+	python_optimize /usr/share/${NAME}/python
 }
 

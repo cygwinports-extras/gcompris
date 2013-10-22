@@ -1,0 +1,20 @@
+--- origsrc/gcompris-12.11/src/algebra_by-activity/algebra.c	2011-12-12 15:53:55.000000000 -0600
++++ src/gcompris-12.11/src/algebra_by-activity/algebra.c	2013-10-21 18:42:31.618158200 -0500
+@@ -18,6 +18,7 @@
+ 
+ #include <ctype.h>
+ #include <string.h>
++#include <stdlib.h>
+ 
+ #include "gcompris/gcompris.h"
+ 
+--- origsrc/gcompris-12.11/src/gcompris/sugar_db.c	2012-05-29 12:39:36.000000000 -0500
++++ src/gcompris-12.11/src/gcompris/sugar_db.c	2013-10-21 18:38:57.899934300 -0500
+@@ -16,6 +16,7 @@
+  *   along with this program; if not, see <http://www.gnu.org/licenses/>.
+  */
+ 
++#include <stdlib.h>
+ #include <string.h>
+ #include <libgen.h>
+ #include <glib.h>
