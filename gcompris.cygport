@@ -2,7 +2,7 @@ inherit python gnome2
 
 NAME="gcompris"
 VERSION=12.11
-RELEASE=1
+RELEASE=2
 CATEGORY="Games"
 SUMMARY="GTK+ educational suite for children"
 DESCRIPTION="GCompris is an educational software suite comprising of numerous
@@ -17,6 +17,7 @@ PATCH_URI="
 	9.3-platform-win32.patch
 	9.3-python-cygwin.patch
 	12.11-Winherit-decls.patch
+	12.11-sugar.patch
 "
 
 PKG_NAMES="gcompris sugar-GCompris"

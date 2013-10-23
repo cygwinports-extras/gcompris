@@ -1,0 +1,19 @@
+--- origsrc/gcompris-12.11/sugar/gcompris-activity	2012-05-29 12:39:37.000000000 -0500
++++ src/gcompris-12.11/sugar/gcompris-activity	2013-10-22 02:57:48.763881800 -0500
+@@ -22,15 +22,6 @@ fi
+ 
+ [ -e "$GCOMPRIS_USERDIR" ] || mkdir -p "$GCOMPRIS_USERDIR"
+ 
+-export LD_LIBRARY_PATH=$SUGAR_BUNDLE_PATH/lib:$SUGAR_BUNDLE_PATH/lib/gcompris:$LD_LIBRARY_PATH
+-
+-args="$args --package_data_dir $SUGAR_BUNDLE_PATH/share/gcompris/boards"
+-args="$args --plugin_dir $SUGAR_BUNDLE_PATH/lib/gcompris"
+-args="$args --python_plugin_dir $SUGAR_BUNDLE_PATH/share/gcompris/python/"
+-args="$args --package_skin_dir $SUGAR_BUNDLE_PATH/share/gcompris/boards/skins"
+-args="$args --menu_dir $SUGAR_BUNDLE_PATH/share/gcompris/boards"
+-args="$args --locale_dir $SUGAR_BUNDLE_PATH/share/locale"
+-
+ # now run Gcompris
+ echo $args $@
+-exec $SUGAR_BUNDLE_PATH/bin/gcompris $args "$@"
++exec gcompris $args "$@"
