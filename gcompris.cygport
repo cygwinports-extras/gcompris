@@ -1,8 +1,8 @@
 inherit python gnome2
 
 NAME="gcompris"
-VERSION=12.11
-RELEASE=2
+VERSION=15.10
+RELEASE=1
 CATEGORY="Games"
 SUMMARY="GTK+ educational suite for children"
 DESCRIPTION="GCompris is an educational software suite comprising of numerous
@@ -10,7 +10,7 @@ activities for children aged 2 to 10. Some of the activities are game
 orientated, but nonetheless still educational. Currently GCompris offers
 in excess of 80 activities and more are being developed."
 HOMEPAGE="http://gcompris.net/"
-SRC_URI="mirror://sourceforge/gcompris/${NAME}-${VERSION}.tar.bz2"
+SRC_URI="http://gcompris.net/download/gtk/src/${NAME}-${VERSION}.tar.bz2"
 PATCH_URI="
 	9.3-implib.patch
 	9.5-libgoocanvas.patch
@@ -20,15 +20,15 @@ PATCH_URI="
 	12.11-sugar.patch
 "
 
-PKG_NAMES="gcompris sugar-GCompris"
-gcompris_REQUIRES="gnucap gnuchess gstreamer0.10-plugins-base gstreamer0.10-plugins-good gstreamer0.10-plugins-vorbis tuxpaint"
-gcompris_CONTENTS="--exclude=gcompris-activity --exclude=sugar --exclude=voices etc/ usr/"
+PKG_NAMES="gcompris" # sugar-GCompris
+gcompris_REQUIRES="gnucap gnuchess gstreamer0.10-plugins-base gstreamer0.10-plugins-good tuxpaint"
+gcompris_CONTENTS="--exclude=gcompris-activity --exclude=sugar --exclude=voices usr/"
 sugar_GCompris_CATEGORY="Sugar"
 sugar_GCompris_REQUIRES="gcompris"
 sugar_GCompris_CONTENTS="usr/bin/gcompris-activity usr/share/icons/sugar/ usr/share/sugar/"
 
-for l in af ar ast bg br cs da de el en eo es eu fi fr he hi hu id it mr nb nl \
-         nn pa pt pt_BR ru sk sl so sr sv th tr ur zh_CN
+for l in af ar ast bg br ca cs da de el en eo es eu fi fr gd he hi hu id it \
+	 kn lt mr nb nl nn pa pt pt_BR ru sk sl so sr sv th tr ur zh_CN
 do
 	PKG_NAMES+=" gcompris-voices-${l}"
 	declare gcompris_voices_${l}_CONTENTS="usr/share/gcompris/boards/voices/${l}/"
@@ -43,10 +43,9 @@ src_compile() {
 	cd ${B}
 	cygconf \
 		--disable-static \
-		--enable-gnet \
 		--enable-py-build-only \
 		--with-python=${PYTHON} \
-		--enable-sugar \
+		--disable-sugar \
 		--disable-dependency-tracking \
 		--disable-xf86vidmode
 	cygmake -j1 \
